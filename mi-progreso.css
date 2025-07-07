@@ -1,0 +1,58 @@
+body {
+    background: #f6f8fa;
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+}
+.progreso-container {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #22d3ee22;
+    max-width: 500px;
+    margin: 48px auto;
+    padding: 32px 28px 24px 28px;
+}
+.progreso-container h2 {
+    color: #2563eb;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.25em;
+    text-align: center;
+}
+.progreso-grafico {
+    width: 100%;
+    height: 220px;
+    margin-bottom: 24px;
+}
+.progreso-grafico canvas {
+    width: 100% !important;
+    height: 220px !important;
+    background: #f8fafc;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #22d3ee11;
+}
+.progreso-resumen h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+    font-size: 1.08em;
+}
+.progreso-resumen ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+}
+.progreso-resumen li {
+    margin-bottom: 6px;
+    color: #2563eb;
+}
+@media (max-width: 600px) {
+    .progreso-container {
+        padding: 12px 2vw;
+    }
+    .progreso-grafico {
+        height: 160px;
+    }
+    .progreso-grafico canvas {
+        height: 160px !important;
+    }
+}

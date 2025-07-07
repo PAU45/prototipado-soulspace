@@ -1,0 +1,76 @@
+body {
+    background: #f6f8fa;
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+}
+.emocion-container {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #22d3ee22;
+    max-width: 400px;
+    margin: 48px auto;
+    padding: 32px 28px 24px 28px;
+}
+.emocion-container h2 {
+    color: #2563eb;
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 1.25em;
+    text-align: center;
+}
+.emocion-emojis {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+.emocion-emojis label {
+    cursor: pointer;
+}
+.emocion-emojis input[type="radio"] {
+    display: none;
+}
+.emoji {
+    font-size: 2.2em;
+    transition: transform 0.15s;
+    display: inline-block;
+}
+.emocion-emojis input[type="radio"]:checked + .emoji {
+    transform: scale(1.2);
+    filter: drop-shadow(0 2px 8px #22d3ee33);
+}
+textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 10px;
+    font-size: 1em;
+    margin-bottom: 12px;
+    resize: vertical;
+}
+button[type="submit"] {
+    background: linear-gradient(90deg, #22d3ee 60%, #2563eb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 22px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #22d3ee33;
+    transition: background 0.2s, transform 0.2s;
+    width: 100%;
+}
+button[type="submit"]:hover {
+    background: linear-gradient(90deg, #2563eb 60%, #22d3ee 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+#mensaje-emocion {
+    text-align: center;
+    font-weight: 600;
+}
+@media (max-width: 600px) {
+    .emocion-container {
+        padding: 12px 2vw;
+    }
+}

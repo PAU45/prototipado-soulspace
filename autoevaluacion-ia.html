@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoevaluación IA | SoulSpace</title>
+    <link rel="stylesheet" href="autoevaluacion-ia.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="/soulspace-prototipo/logo.jpg" alt="SoulSpace" class="chat-logo">
+            <div>
+                <h2>Autoevaluación con IA</h2>
+                <span class="chat-desc">Conversación privada y segura</span>
+            </div>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="msg ia">
+                <div class="msg-bubble">
+                    ¡Hola! Soy tu asistente de bienestar. ¿Cómo te sientes hoy? 😊
+                </div>
+            </div>
+        </div>
+        <form class="chat-input-bar" id="chatForm">
+            <input type="text" id="chatInput" placeholder="Escribe tu respuesta..." autocomplete="off" required>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <script>
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    // Simulación de respuestas IA
+    const respuestasIA = [
+        "Gracias por compartirlo. ¿Qué te gustaría mejorar de tu bienestar esta semana?",
+        "¿Hay algo que te preocupe o te gustaría conversar?",
+        "Recuerda que puedes usar los recursos de SoulSpace cuando lo necesites.",
+        "¡Gracias por tu confianza! ¿Quieres registrar una meta para esta semana?"
+    ];
+    let paso = 0;
+
+    chatForm.onsubmit = function(e) {
+        e.preventDefault();
+        const texto = chatInput.value.trim();
+        if (!texto) return;
+        agregarMensaje('user', texto);
+        chatInput.value = '';
+        setTimeout(() => {
+            if (paso < respuestasIA.length) {
+                agregarMensaje('ia', respuestasIA[paso]);
+                paso++;
+            } else {
+                agregarMensaje('ia', '¡Gracias por conversar! Puedes volver cuando quieras.');
+            }
+        }, 900);
+    };
+
+    function agregarMensaje(remitente, texto) {
+        const msg = document.createElement('div');
+        msg.className = 'msg ' + remitente;
+        const bubble = document.createElement('div');
+        bubble.className = 'msg-bubble';
+        bubble.textContent = texto;
+        msg.appendChild(bubble);
+        chatMessages.appendChild(msg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+    </script>
+</body>
+</html>

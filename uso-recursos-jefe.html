@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uso de Recursos | SoulSpace</title>
+    <link rel="stylesheet" href="dashboard-jefe.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="logo.png" alt="SoulSpace Logo" style="height:40px;vertical-align:middle;margin-right:10px;">SoulSpace</div>
+        <ul class="nav-links">
+            <li><a href="dashboard-jefe.html">Inicio</a></li>
+            <li><a href="mensajes.html">Mensajes</a></li>
+            <li><a href="index.html">Salir</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Uso de Recursos</h2>
+        <section>
+            <p>Visualización del uso de recursos de bienestar. (Maqueta)</p>
+            <canvas id="recursosChart" width="400" height="200" style="background:#fff;border-radius:10px;box-shadow:0 2px 8px #0001;"></canvas>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    new Chart(document.getElementById('recursosChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Talleres', 'Charlas', 'Consultas', 'Recursos Digitales'],
+            datasets: [{
+                label: 'Uso de Recursos',
+                data: [40, 25, 20, 15],
+                backgroundColor: ['#4e73df','#1cc88a','#f6c23e','#e74a3b']
+            }]
+        },
+        options: {
+            plugins: { legend: { position: 'bottom' } }
+        }
+    });
+    </script>
+</body>
+</html>

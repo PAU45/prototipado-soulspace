@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendar Sesión | SoulSpace</title>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet">
+    <link href="dashboard-colaborador.css" rel="stylesheet">
+    <style>
+        .fc { background: #fff; border-radius: 14px; box-shadow: 0 4px 24px #22d3ee22; padding: 18px; }
+        .fc-toolbar-title { color: #2563eb; font-size: 1.2em; }
+        .fc-button-primary { background: #22d3ee; border: none; }
+        .fc-button-primary:hover { background: #2563eb; }
+        body { background: #f6f8fa; }
+        .agendar-header { margin: 32px auto 18px auto; max-width: 900px; }
+    </style>
+</head>
+<body>
+    <div class="agendar-header">
+        <h2 style="color:#2563eb;">Agendar Sesión</h2>
+        <p>Selecciona una fecha y hora para reservar tu próxima sesión de apoyo.</p>
+    </div>
+    <div id="calendar" style="max-width:900px;margin:0 auto;"></div>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'es',
+            selectable: true,
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            },
+            select: function(info) {
+                const hora = prompt('¿A qué hora deseas agendar la sesión? (Ej: 16:00)');
+                if(hora) {
+                    calendar.addEvent({
+                        title: 'Sesión reservada',
+                        start: info.startStr + 'T' + hora,
+                        allDay: false
+                    });
+                    alert('¡Sesión agendada para ' + info.startStr + ' a las ' + hora + '!');
+                }
+                calendar.unselect();
+            },
+            events: [
+                // Ejemplo de sesiones ya agendadas:
+                { title: 'Sesión reservada', start: '2025-07-15T16:00:00' }
+            ]
+        });
+        calendar.render();
+    });
+    </script>
+</body>
+</html>

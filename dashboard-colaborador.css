@@ -1,0 +1,13 @@
+body {font-family: 'Segoe UI', Arial, sans-serif; background: #f6f8fa; margin: 0; color: #222;}
+.navbar {background: #4f46e5; color: #fff; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;}
+.logo {font-weight: bold; font-size: 1.5rem; letter-spacing: 1px; display: flex; align-items: center; gap: 0.5rem;}
+.nav-links {list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0;}
+.nav-links li a {color: #fff; text-decoration: none; font-weight: 500; transition: color 0.2s;}
+.nav-links li a:hover {color: #a5b4fc;}
+main {max-width: 900px; margin: 2rem auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 2rem;}
+h2 {color: #4f46e5; margin-bottom: 1.5rem;}
+.dashboard-cards {display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;}
+.card {background: #e0e7ff; color: #3730a3; padding: 1rem 1.5rem; border-radius: 8px; font-weight: 500; cursor: pointer; box-shadow: 0 1px 4px #0001; transition: background 0.2s;}
+.card:hover {background: #c7d2fe;}
+.resumen {background: #f3f4f6; padding: 1rem; border-radius: 8px; margin-top: 1rem;}
+@media (max-width: 900px) {main {padding: 1rem;} .dashboard-cards {flex-direction: column; gap: 0.7rem;}}

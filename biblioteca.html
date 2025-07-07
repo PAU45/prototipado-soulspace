@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Recursos | SoulSpace</title>
+    <link rel="stylesheet" href="biblioteca.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="biblio-container">
+        <h2>Biblioteca de Recursos</h2>
+        <div class="biblio-busqueda">
+            <input type="text" id="busqueda" placeholder="Buscar guía, tema o palabra clave...">
+        </div>
+        <div class="biblio-lista" id="biblioLista">
+            <div class="biblio-item">
+                <div class="biblio-titulo">Guía de Manejo del Estrés</div>
+                <div class="biblio-desc">Estrategias prácticas para reducir el estrés laboral.</div>
+                <a href="#" class="biblio-link">Ver PDF</a>
+            </div>
+            <div class="biblio-item">
+                <div class="biblio-titulo">Ejercicios de Respiración</div>
+                <div class="biblio-desc">Técnicas simples para relajarte en minutos.</div>
+                <a href="#" class="biblio-link">Ver PDF</a>
+            </div>
+            <div class="biblio-item">
+                <div class="biblio-titulo">Guía de Mindfulness</div>
+                <div class="biblio-desc">Aprende a estar presente y mejorar tu bienestar.</div>
+                <a href="#" class="biblio-link">Ver PDF</a>
+            </div>
+            <div class="biblio-item">
+                <div class="biblio-titulo">Recursos para el Sueño</div>
+                <div class="biblio-desc">Consejos para dormir mejor y recuperar energía.</div>
+                <a href="#" class="biblio-link">Ver PDF</a>
+            </div>
+        </div>
+    </div>
+    <script>
+    document.getElementById('busqueda').addEventListener('input', function() {
+        const filtro = this.value.toLowerCase();
+        document.querySelectorAll('.biblio-item').forEach(function(item) {
+            const texto = item.textContent.toLowerCase();
+            item.style.display = texto.includes(filtro) ? '' : 'none';
+        });
+    });
+    </script>
+</body>
+</html>

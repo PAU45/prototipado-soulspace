@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulSpace | Bienvenida</title>
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-bg">
+    <div class="login-container half-bg">
+        <div class="login-img-half">
+            <img src="/soulspace-prototipo/unnamed.jpg" alt="Ilustración SoulSpace" class="login-img-full">
+        </div>
+        <div class="login-form-half">
+            <div class="login-form-box">
+                <img src="/soulspace-prototipo/logo.jpg" alt="SoulSpace" class="login-logo" style="max-width:120px;margin-bottom:1rem;">
+                <h2>Bienvenido a SoulSpace</h2>
+                <!-- ...existing code... -->
+<form class="login-form-main" id="loginForm">
+    <input type="text" id="usuario" placeholder="Usuario o Email" required>
+    <input type="password" id="contrasena" placeholder="Contraseña" required>
+    <button type="submit" class="login-role-btn">Entrar</button>
+</form>
+<!-- ...existing code... -->
+<script>
+document.getElementById('loginForm').onsubmit = function(e) {
+    e.preventDefault();
+    const usuario = document.getElementById('usuario').value.trim().toLowerCase();
+    // Simulación de usuarios por rol
+    // Puedes cambiar los nombres/emails según tus pruebas
+    if (usuario === "jefe" || usuario === "jefe@soulspace.com") {
+        window.location.href = "dashboard-jefe.html";
+    } else if (usuario === "profesional" || usuario === "profesional@soulspace.com") {
+        window.location.href = "dashboard-profesional.html";
+    } else if (usuario === "colaborador" || usuario === "colaborador@soulspace.com") {
+        window.location.href = "dashboard-colaborador.html";
+    } else if (usuario === "admin" || usuario === "rrhh" || usuario === "admin@soulspace.com") {
+        window.location.href = "dashboard-rrhh.html";
+    } else {
+        alert("Usuario o contraseña incorrectos.");
+    }
+};
+</script>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="whatsapp-btn right">Central de Atención</a>
+</body>
+</html>

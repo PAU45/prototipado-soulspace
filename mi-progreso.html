@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Progreso | SoulSpace</title>
+    <link rel="stylesheet" href="mi-progreso.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="progreso-container">
+        <h2>Mi Progreso</h2>
+        <div class="progreso-grafico">
+            <canvas id="graficoProgreso"></canvas>
+        </div>
+        <div class="progreso-resumen">
+            <h3>Resumen</h3>
+            <ul>
+                <li>Sesiones completadas: <b>8</b></li>
+                <li>Emociones positivas registradas: <b>15</b></li>
+                <li>Autoevaluaciones realizadas: <b>5</b></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    new Chart(document.getElementById('graficoProgreso').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['Abr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Bienestar',
+                data: [60, 70, 75, 80],
+                borderColor: '#22d3ee',
+                backgroundColor: '#a5f3fc55',
+                tension: 0.3
+            }, {
+                label: 'Estrés',
+                data: [40, 30, 25, 20],
+                borderColor: '#f87171',
+                backgroundColor: '#fca5a555',
+                tension: 0.3
+            }]
+        },
+        options: {
+            plugins: { legend: { position: 'bottom' } },
+            scales: { y: { min: 0, max: 100 } },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+    </script>
+</body>
+</html>

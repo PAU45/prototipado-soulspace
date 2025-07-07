@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Colaborador | SoulSpace</title>
+    <link rel="stylesheet" href="dashboard-colaborador.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-colab-grid">
+        <aside class="sidebar-colab">
+            <div class="logo"><img src="/soulspace-prototipo/logo.jpg" alt="SoulSpace Logo" style="height:40px;vertical-align:middle;margin-right:10px;">SoulSpace</div>
+            <ul class="nav-links">
+
+                <li><a href="mensajes.html">Mensajes</a></li>
+                <li><a href="index.html">Salir</a></li>
+            </ul>
+            <div class="sidebar-bienestar">
+                <h4>Mi Bienestar</h4>
+                <div class="bienestar-bar">
+                    <span style="background:#22d3ee;width:70%;display:inline-block;height:8px;border-radius:4px;"></span>
+                    <span style="background:#fbbf24;width:30%;display:inline-block;height:8px;border-radius:4px;margin-left:2px;"></span>
+                </div>
+                <div style="font-size:0.98em;margin-top:8px;">Bienestar: <b>70%</b> &nbsp; Estrés: <b>30%</b></div>
+            </div>
+        </aside>
+        <main class="main-colab">
+            <section class="hero-colab-fixed">
+                <div class="hero-img-wrap">
+                    <img src="img/bienestar-hero.svg" alt="Bienestar" class="hero-img">
+                </div>
+                <div class="hero-text">
+                    <h2>¡Hola, [Nombre Colaborador]!</h2>
+                    <div class="frase-motivacional">Recuerda: tu bienestar es lo más importante. ¡Hoy es un gran día para cuidarte!</div>
+                </div>
+            </section>
+            <style>
+            .hero-colab-fixed {
+                display: flex;
+                align-items: center;
+                gap: 28px;
+                margin-bottom: 32px;
+                padding: 0 0 0 0;
+                max-width: 600px;
+            }
+            .hero-img-wrap {
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #fff;
+                border-radius: 50%;
+                box-shadow: 0 4px 24px #22d3ee33;
+                width: 90px;
+                height: 90px;
+            }
+            .hero-img {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+            }
+            .hero-text h2 {
+                margin: 0 0 4px 0;
+                font-size: 1.35em;
+                color: #2563eb;
+                font-weight: 700;
+            }
+            .frase-motivacional {
+                font-size: 1.05em;
+                color: #2563eb;
+                margin-top: 4px;
+                font-weight: 500;
+                letter-spacing: 0.1px;
+            }
+            @media (max-width: 700px) {
+                .hero-colab-fixed {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 12px;
+                }
+                .hero-img-wrap {
+                    width: 70px;
+                    height: 70px;
+                }
+                .hero-img {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            </style>
+            <div class="colab-cards-grid">
+                <div class="colab-card card-accion">
+                    <div class="icono-card">😊</div>
+                    <div class="titulo-card">Registrar Emoción</div>
+                    <div class="desc-card">Expresa cómo te sientes hoy</div>
+                    <a href="registrar-emocion.html" class="btn-funcion">Registrar</a>
+                </div>
+                <div class="colab-card card-accion">
+                    <div class="icono-card">📝</div>
+                    <div class="titulo-card">Autoevaluación</div>
+                    <div class="desc-card">Evalúa tu bienestar y energía</div>
+                       <a href="autoevaluacion-ia.html" class="btn-funcion">Ir a evaluación</a>
+                </div>
+                <div class="colab-card card-accion">
+                    <div class="icono-card">📈</div>
+                    <div class="titulo-card">Mi Progreso</div>
+                    <div class="desc-card">Visualiza tu avance personal</div>
+                    <a href="mi-progreso.html" class="btn-funcion">ver mi progreso</a>
+                </div>
+                <div class="colab-card card-accion">
+                    <div class="icono-card">📚</div>
+                    <div class="titulo-card">Biblioteca de Recursos</div>
+                    <div class="desc-card">Encuentra guías y herramientas</div>
+                    <a href="biblioteca.html" class="btn-funcion">Ir a biblioteca</a>
+                </div>
+    <script>
+    function abrirRegistrarEmocion() {
+        alert('Funcionalidad: Registrar Emoción (aquí se abriría un formulario/modal para registrar cómo te sientes).');
+    }
+    function abrirAutoevaluacion() {
+        alert('Funcionalidad: Autoevaluación (aquí se abriría un formulario/modal para autoevaluar tu bienestar y energía).');
+    }
+    function abrirMiProgreso() {
+        alert('Funcionalidad: Mi Progreso (aquí se mostraría un gráfico o resumen de tu avance personal).');
+    }
+    function abrirBiblioteca() {
+        alert('Funcionalidad: Biblioteca de Recursos (aquí se mostraría la biblioteca de guías y herramientas).');
+    }
+    </script>
+    <style>
+    .btn-funcion {
+        margin-top: 14px;
+        background: linear-gradient(90deg, #22d3ee 60%, #2563eb 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 8px 18px;
+        font-size: 1em;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 2px 8px #22d3ee33;
+        transition: background 0.2s, transform 0.2s;
+    }
+    .btn-funcion:hover {
+        background: linear-gradient(90deg, #2563eb 60%, #22d3ee 100%);
+        transform: translateY(-2px) scale(1.03);
+    }
+    </style>
+                <div class="colab-card card-accion">
+                        <div class="icono-card">📅</div>
+                        <div class="titulo-card">Agendar Sesión</div>
+                        <div class="desc-card">Reserva un espacio de apoyo</div>
+                        <a href="agendar-sesion.html" class="btn-funcion">Ir a calendario</a>
+                    </div>
+                 <div class="colab-card card-accion">
+            <div class="icono-card">⭐</div>
+            <div class="titulo-card">Evaluar Sesión</div>
+            <div class="desc-card">Califica y comenta tu última sesión</div>
+            <a href="evaluacion-sesion.html" class="btn-funcion">Ir a evaluación</a>
+                </div>
+            </div>
+            
+ 
+           
+        
+            <div class="colab-ult-registro">
+                <h3>Último registro emocional</h3>
+                <div class="ult-emo-card">
+                    <span class="emoji">😊</span>
+                    <span class="estado">Feliz</span>
+                    <span class="comentario">- "Hoy fue un buen día"</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <style>
+    body {
+        background: linear-gradient(120deg, #f4f6fa 60%, #e0e7ff 100%);
+        margin: 0;
+        font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+        min-height: 100vh;
+    }
+    .dashboard-colab-grid {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        min-height: 100vh;
+    }
+    .sidebar-colab {
+        background: linear-gradient(160deg, #22d3ee 80%, #2563eb 100%);
+        color: #fff;
+        padding: 36px 22px 22px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+        min-height: 100vh;
+        box-shadow: 2px 0 16px #0001;
+    }
+    .sidebar-colab .logo {
+        font-size: 1.35em;
+        font-weight: 700;
+        margin-bottom: 36px;
+        letter-spacing: 0.5px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .sidebar-colab .nav-links {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 36px 0;
+    }
+    .sidebar-colab .nav-links li {
+        margin-bottom: 18px;
+    }
+    .sidebar-colab .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.08em;
+        letter-spacing: 0.2px;
+        transition: color 0.2s;
+        padding: 6px 0 6px 8px;
+        border-left: 3px solid transparent;
+        display: block;
+    }
+    .sidebar-colab .nav-links a:hover, .sidebar-colab .nav-links a:focus {
+        color: #cffafe;
+        border-left: 3px solid #cffafe;
+        background: #2563eb33;
+    }
+    .sidebar-bienestar {
+        background: #2563eb;
+        border-radius: 12px;
+        padding: 18px 14px 14px 14px;
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 2px 8px #0002;
+    }
+    .sidebar-bienestar h4 {
+        margin: 0 0 6px 0;
+        font-size: 1.08em;
+        font-weight: 600;
+        color: #fff;
+    }
+    .bienestar-bar {
+        width: 100%;
+        height: 8px;
+        background: #cffafe;
+        border-radius: 4px;
+        margin-bottom: 2px;
+        display: flex;
+        overflow: hidden;
+    }
+    .main-colab {
+        padding: 48px 48px 36px 48px;
+    }
+    .colab-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 28px;
+        margin-bottom: 36px;
+    }
+    .colab-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0002;
+        padding: 28px 18px 20px 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 180px;
+        position: relative;
+        transition: box-shadow 0.2s, transform 0.2s;
+        cursor: pointer;
+    }
+    .colab-card:hover {
+        box-shadow: 0 8px 32px #22d3ee22;
+        transform: translateY(-4px) scale(1.03);
+    }
+    .icono-card {
+        font-size: 2.2em;
+        margin-bottom: 10px;
+    }
+    .titulo-card {
+        font-size: 1.13em;
+        font-weight: 700;
+        color: #2563eb;
+        margin-bottom: 4px;
+    }
+    .desc-card {
+        font-size: 0.98em;
+        color: #64748b;
+        text-align: center;
+    }
+    .colab-ult-registro {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 8px #0001;
+        padding: 22px 24px 18px 24px;
+        margin-top: 10px;
+        max-width: 500px;
+    }
+    .colab-ult-registro h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #2563eb;
+        font-size: 1.08em;
+        font-weight: 700;
+    }
+    .ult-emo-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.08em;
+        background: #f1f5f9;
+        border-radius: 8px;
+        padding: 10px 16px;
+        margin-top: 2px;
+    }
+    .ult-emo-card .emoji {
+        font-size: 1.4em;
+    }
+    .ult-emo-card .estado {
+        font-weight: 600;
+        color: #22d3ee;
+    }
+    .ult-emo-card .comentario {
+        color: #64748b;
+        font-size: 0.98em;
+    }
+    @media (max-width: 1100px) {
+        .dashboard-colab-grid {
+            grid-template-columns: 1fr;
+        }
+        .sidebar-colab {
+            min-height: auto;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .main-colab {
+            padding: 20px 10px;
+        }
+        .colab-cards-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</body>
+</html>

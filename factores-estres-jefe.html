@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factores de Estrés | SoulSpace</title>
+    <link rel="stylesheet" href="dashboard-jefe.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="logo.png" alt="SoulSpace Logo" style="height:40px;vertical-align:middle;margin-right:10px;">SoulSpace</div>
+        <ul class="nav-links">
+            <li><a href="dashboard-jefe.html">Inicio</a></li>
+            <li><a href="mensajes.html">Mensajes</a></li>
+            <li><a href="index.html">Salir</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Factores de Estrés</h2>
+        <section>
+            <p>Visualización de los factores de estrés más comunes. (Maqueta)</p>
+            <canvas id="estresChart" width="400" height="200" style="background:#fff;border-radius:10px;box-shadow:0 2px 8px #0001;"></canvas>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    new Chart(document.getElementById('estresChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Carga', 'Plazos', 'Comunicación', 'Reconocimiento', 'Ambiente'],
+            datasets: [{
+                label: 'Factores de Estrés',
+                data: [30, 22, 18, 15, 10],
+                backgroundColor: ['#e74a3b','#f6c23e','#36b9cc','#858796','#1cc88a']
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            indexAxis: 'y',
+            scales: { x: { min: 0, max: 40 } }
+        }
+    });
+    </script>
+</body>
+</html>

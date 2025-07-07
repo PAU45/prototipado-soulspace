@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard RRHH | SoulSpace</title>
+    <link rel="stylesheet" href="dashboard-rrhh.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-rrhh-layout">
+        <aside class="sidebar-rrhh">
+            <div class="logo">
+                <img src="/soulspace-prototipo/logo.jpg" alt="SoulSpace Logo" style="height:40px;vertical-align:middle;margin-right:10px;">
+                <span>SoulSpace</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="dashboard-rrhh.html">Inicio</a></li>
+                <li><a href="profesionales-admin.html">Gestión de Profesionales</a></li>
+                <li><a href="mensajes.html">Mensajes</a></li>
+                <li><a href="index.html">Salir</a></li>
+            </ul>
+            <div class="sidebar-filtros">
+                <h4>Filtros (Maqueta)</h4>
+                <label>Área:<br><select><option>Todos</option><option>Ventas</option><option>TI</option><option>RRHH</option></select></label>
+                <label>Género:<br><select><option>Todos</option><option>Femenino</option><option>Masculino</option></select></label>
+                <label>Edad:<br><select><option>Todos</option><option>18-25</option><option>26-35</option><option>36-50</option></select></label>
+            </div>
+        </aside>
+        <main class="main-rrhh">
+            <div class="main-card-rrhh">
+                <section class="hero-rrhh-fixed">
+                    <div class="hero-img-wrap">
+                        <img src="img/bienestar-hero.svg" alt="Bienestar" class="hero-img">
+                    </div>
+                    <div class="hero-text">
+                        <h2>Bienvenido, RRHH</h2>
+                        <div class="frase-motivacional">
+                            Tu gestión impulsa el bienestar de toda la organización.<br>¡Gracias por tu labor!
+                        </div>
+                    </div>
+                </section>
+                <div class="grid-graficos-rrhh">
+                    <div class="grafico-bloque" style="grid-column:1/3;">
+                        <h3>Bienestar Organizacional</h3>
+                        <canvas id="bienestarChart"></canvas>
+                    </div>
+                    <div class="grafico-bloque">
+                        <h3>Estrés Organizacional</h3>
+                        <canvas id="estresChart"></canvas>
+                    </div>
+                    <div class="grafico-bloque">
+                        <h3>Participación en Programas</h3>
+                        <canvas id="programasChart"></canvas>
+                    </div>
+                    <div class="grafico-bloque" style="grid-column:1/3;">
+                        <h3>Resumen General</h3>
+                        <ul style="background:#f8f9fc;padding:20px;border-radius:10px;box-shadow:0 2px 8px #0001;">
+                            <li>Bienestar promedio: 78%</li>
+                            <li>Nivel de estrés: 22%</li>
+                            <li>Participación en programas: 65%</li>
+                            <li>Áreas con mayor mejora: TI, Ventas</li>
+                        </ul>
+                    </div>
+                </div>
+                <section class="acciones-rapidas">
+                    <button id="btnReporte">Descargar Reporte</button>
+                    <button id="btnConfig">Configurar Programas</button>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    // Gráfico de bienestar organizacional (falso)
+    new Chart(document.getElementById('bienestarChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Bienestar',
+                data: [70, 72, 74, 78, 80, 78, 78],
+                backgroundColor: ['#6366f1','#818cf8','#a5b4fc','#c7d2fe','#6366f1','#818cf8','#a5b4fc']
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: { y: { min: 60, max: 90 } },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Gráfico de estrés organizacional (falso)
+    new Chart(document.getElementById('estresChart').getContext('2d'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Estrés Bajo', 'Estrés Medio', 'Estrés Alto'],
+            datasets: [{
+                label: 'Estrés',
+                data: [60, 30, 10],
+                backgroundColor: ['#a5b4fc','#fbbf24','#f87171']
+            }]
+        },
+        options: {
+            plugins: { legend: { position: 'bottom' } },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Gráfico de participación en programas (falso)
+    new Chart(document.getElementById('programasChart').getContext('2d'), {
+        type: 'pie',
+        data: {
+            labels: ['Charlas', 'Talleres', 'Consultas', 'Recursos Digitales'],
+            datasets: [{
+                label: 'Participación',
+                data: [30, 40, 20, 10],
+                backgroundColor: ['#6366f1','#fbbf24','#34d399','#818cf8']
+            }]
+        },
+        options: {
+            plugins: { legend: { position: 'bottom' } },
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Botones de acción (maqueta)
+    document.getElementById('btnReporte').onclick = () => alert('Descarga de reporte simulada (maqueta)');
+    document.getElementById('btnConfig').onclick = () => alert('Configuración de programas (maqueta)');
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienestar del Equipo | SoulSpace</title>
+    <link rel="stylesheet" href="dashboard-jefe.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="logo.png" alt="SoulSpace Logo" style="height:40px;vertical-align:middle;margin-right:10px;">SoulSpace</div>
+        <ul class="nav-links">
+            <li><a href="dashboard-jefe.html">Inicio</a></li>
+            <li><a href="mensajes.html">Mensajes</a></li>
+            <li><a href="index.html">Salir</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Bienestar del Equipo</h2>
+        <section>
+            <p>Visualización del bienestar general del equipo. (Maqueta)</p>
+            <canvas id="bienestarChart" width="400" height="200" style="background:#fff;border-radius:10px;box-shadow:0 2px 8px #0001;"></canvas>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    new Chart(document.getElementById('bienestarChart').getContext('2d'), {
+        type: 'line',
+        data: {
+            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul'],
+            datasets: [{
+                label: 'Bienestar',
+                data: [70, 72, 74, 75, 76, 75, 75],
+                borderColor: '#4e73df',
+                backgroundColor: 'rgba(78,115,223,0.1)',
+                tension: 0.3,
+                fill: true
+            }]
+        },
+        options: {
+            plugins: { legend: { display: false } },
+            scales: { y: { min: 60, max: 80 } }
+        }
+    });
+    </script>
+</body>
+</html>

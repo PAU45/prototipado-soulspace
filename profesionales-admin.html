@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Profesionales | SoulSpace</title>
+    <link rel="stylesheet" href="profesionales-admin.css">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e0e7ff 0%, #f6f8fa 100%);
+        }
+        .main-title {
+            color: #4f46e5;
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        .crud-form {
+            background: #f3f4f6;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px #0001;
+            padding: 1.5rem 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+        .crud-form input, .crud-form select {
+            min-width: 180px;
+        }
+        .crud-table {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px #0001;
+            overflow: hidden;
+        }
+        .crud-table th {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .crud-actions button {
+            min-width: 80px;
+        }
+        .crud-actions .edit {
+            background: #0ea5e9;
+        }
+        .crud-actions .edit:hover {
+            background: #0369a1;
+        }
+        .crud-actions .delete {
+            background: #ef4444;
+        }
+        .crud-actions .delete:hover {
+            background: #b91c1c;
+        }
+        .rol-badge {
+            display: inline-block;
+            padding: 0.2em 0.7em;
+            border-radius: 12px;
+            font-size: 0.95em;
+            font-weight: 600;
+            color: #fff;
+        }
+        .rol-profesional { background: #6366f1; }
+        .rol-admin { background: #0ea5e9; }
+        .rol-jefe { background: #f59e42; }
+        .rol-rrhh { background: #10b981; }
+        @media (max-width: 900px) {
+            .crud-form { flex-direction: column; gap: 0.7rem; }
+            main { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/soulspace-prototipo/logo.jpg" alt="SoulSpace Logo" style="height:40px;vertical-align:middle;margin-right:10px;">
+            SoulSpace
+        </div>
+        <ul class="nav-links">
+            <li><a href="dashboard-rrhh.html">Dashboard RRHH</a></li>
+            <li><a href="profesionales-admin.html">Gestión de Profesionales</a></li>
+            <li><a href="index.html">Salir</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="main-title">Gestión de Profesionales y Usuarios</div>
+        <div class="subtitle">Administra los perfiles de profesionales de bienestar, administradores, jefes y RRHH de la plataforma SoulSpace.</div>
+        <form class="crud-form" id="formProfesional">
+            <div>
+                <label>Nombre</label>
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
+            </div>
+            <div>
+                <label>Rol</label>
+                <select id="rol">
+                    <option value="profesional">Profesional de Bienestar</option>
+                    <option value="admin">Administrador</option>
+                    <option value="jefe">Jefe/Gerente</option>
+                    <option value="rrhh">RRHH</option>
+                </select>
+            </div>
+            <button type="submit">Agregar</button>
+        </form>
+        <table class="crud-table" id="tablaProfesionales">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Filas dinámicas -->
+            </tbody>
+        </table>
+    </main>
+    <script>
+        // CRUD FALSO EN JS
+        let profesionales = [
+            {nombre: 'Ana López', email: 'ana@bienestar.com', rol: 'profesional'},
+            {nombre: 'Carlos Ruiz', email: 'carlos@empresa.com', rol: 'admin'},
+            {nombre: 'María Torres', email: 'maria@empresa.com', rol: 'rrhh'},
+            {nombre: 'Pedro Gómez', email: 'pedro@empresa.com', rol: 'jefe'}
+        ];
+        let editIndex = null;
+        function renderTabla() {
+            const tbody = document.querySelector('#tablaProfesionales tbody');
+            tbody.innerHTML = '';
+            profesionales.forEach((p, i) => {
+                let rolLabel = '';
+                let rolClass = '';
+                switch(p.rol) {
+                    case 'profesional': rolLabel = 'Profesional de Bienestar'; rolClass = 'rol-badge rol-profesional'; break;
+                    case 'admin': rolLabel = 'Administrador'; rolClass = 'rol-badge rol-admin'; break;
+                    case 'jefe': rolLabel = 'Jefe/Gerente'; rolClass = 'rol-badge rol-jefe'; break;
+                    case 'rrhh': rolLabel = 'RRHH'; rolClass = 'rol-badge rol-rrhh'; break;
+                }
+                tbody.innerHTML += `<tr>
+                    <td>${p.nombre}</td>
+                    <td>${p.email}</td>
+                    <td><span class="${rolClass}">${rolLabel}</span></td>
+                    <td class='crud-actions'>
+                        <button class="edit" onclick="editar(${i})">Editar</button>
+                        <button class="delete" onclick="eliminar(${i})">Eliminar</button>
+                    </td>
+                </tr>`;
+            });
+        }
+        document.getElementById('formProfesional').onsubmit = function(e) {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const rol = document.getElementById('rol').value;
+            if(editIndex === null) {
+                profesionales.push({nombre, email, rol});
+            } else {
+                profesionales[editIndex] = {nombre, email, rol};
+                editIndex = null;
+                this.querySelector('button[type="submit"]').textContent = 'Agregar';
+            }
+            this.reset();
+            renderTabla();
+        };
+        window.editar = function(i) {
+            const p = profesionales[i];
+            document.getElementById('nombre').value = p.nombre;
+            document.getElementById('email').value = p.email;
+            document.getElementById('rol').value = p.rol;
+            editIndex = i;
+            document.querySelector('button[type="submit"]').textContent = 'Actualizar';
+        };
+        window.eliminar = function(i) {
+            if(confirm('¿Eliminar este profesional?')) {
+                profesionales.splice(i,1);
+                renderTabla();
+            }
+        };
+        renderTabla();
+    </script>
+</body>
+</html>

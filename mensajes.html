@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes Internos | SoulSpace</title>
+    <link rel="stylesheet" href="mensajes.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"><img src="/soulspace-prototipo/logo.jpg" alt="SoulSpace Logo" style="height:40px;vertical-align:middle;margin-right:10px;">SoulSpace</div>
+        <ul class="nav-links">
+            <li><a href="dashboard-colaborador.html">Inicio</a></li>
+            <li><a href="mensajes.html">Mensajes</a></li>
+            <li><a href="index.html">Salir</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2>Bandeja de Entrada</h2>
+        <ul class="mensajes-lista">
+            <li><b>RRHH:</b> Recuerda la reunión de bienestar el viernes. <span class="fecha">05/07/2025</span></li>
+            <li><b>Sistema:</b> El nivel de estrés de tu equipo aumentó un 10%. <span class="fecha">04/07/2025</span></li>
+        </ul>
+        <form class="mensaje-nuevo">
+            <select>
+                <option>Contactar RRHH</option>
+                <option>Contactar Soporte</option>
+            </select>
+            <textarea placeholder="Escribe tu mensaje..."></textarea>
+            <button>Enviar</button>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,214 @@
+body {
+    background: #f6f8fa;
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+}
+.navbar {
+    background: linear-gradient(90deg, #6366f1 70%, #818cf8 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 38px;
+    box-shadow: 0 2px 12px #6366f133;
+}
+.logo {
+    font-size: 1.3em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+}
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1em;
+    transition: color 0.2s;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+.nav-links a:hover {
+    background: #818cf8;
+    color: #fbbf24;
+}
+.main-prof {
+    max-width: 1100px;
+    margin: 38px auto 0 auto;
+    padding: 0 18px 32px 18px;
+}
+.hero-prof {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 32px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #6366f11a;
+    padding: 28px 32px;
+}
+.hero-img-wrap {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e0f2fe;
+    border-radius: 50%;
+    box-shadow: 0 4px 24px #22d3ee33;
+    width: 90px;
+    height: 90px;
+}
+.hero-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+.hero-text h2 {
+    margin: 0 0 4px 0;
+    color: #6366f1;
+    font-size: 1.5em;
+}
+.frase-motivacional {
+    font-size: 1.08em;
+    color: #2563eb;
+    margin-top: 8px;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+}
+.prof-dashboard-flex {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-top: 18px;
+}
+.dashboard-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    flex: 1 1 220px;
+    max-width: 270px;
+}
+.card {
+    background: linear-gradient(120deg, #6366f1 80%, #818cf8 100%);
+    color: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #6366f133;
+    padding: 18px 18px;
+    min-width: 180px;
+    font-size: 1.08em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+    transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+    cursor: pointer;
+    position: relative;
+}
+.card span {
+    font-size: 1.7em;
+    margin-right: 8px;
+}
+.card:hover {
+    background: linear-gradient(120deg, #818cf8 80%, #6366f1 100%);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 32px #6366f133;
+    color: #fbbf24;
+}
+.resumen-citas {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px #6366f133;
+    padding: 22px 22px 18px 22px;
+    min-width: 320px;
+    flex: 2 1 320px;
+}
+.resumen-citas h3 {
+    color: #6366f1;
+    margin-bottom: 14px;
+    font-size: 1.15em;
+}
+.lista-citas {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.lista-citas li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f6f8fa;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 1em;
+    box-shadow: 0 1px 4px #6366f111;
+}
+.paciente {
+    color: #2563eb;
+    font-weight: 500;
+    margin-left: 6px;
+}
+.btn-ir-sesion {
+    background: linear-gradient(90deg, #6366f1 60%, #818cf8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 18px;
+    font-size: 0.98em;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #6366f133;
+    transition: background 0.2s, transform 0.2s;
+    margin-left: 14px;
+}
+.btn-ir-sesion:hover {
+    background: linear-gradient(90deg, #818cf8 60%, #6366f1 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+@media (max-width: 900px) {
+    .main-prof {
+        max-width: 100%;
+    }
+    .prof-dashboard-flex {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .dashboard-cards, .resumen-citas {
+        max-width: 100%;
+        min-width: unset;
+    }
+    .dashboard-cards {
+        flex-direction: row;
+        justify-content: center;
+        gap: 12px;
+    }
+}
+@media (max-width: 600px) {
+    .hero-prof {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 6px;
+    }
+    .prof-dashboard-flex {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .dashboard-cards {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .resumen-citas {
+      
+        padding: 12px 6px 10px 6px;
+    }
+}

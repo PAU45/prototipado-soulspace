@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Emoción | SoulSpace</title>
+    <link rel="stylesheet" href="registrar-emocion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="emocion-container">
+        <h2>¿Cómo te sientes hoy?</h2>
+        <form id="emocionForm">
+            <div class="emocion-emojis">
+                <label><input type="radio" name="emocion" value="Feliz" required><span class="emoji">😊</span></label>
+                <label><input type="radio" name="emocion" value="Triste"><span class="emoji">😢</span></label>
+                <label><input type="radio" name="emocion" value="Enojado"><span class="emoji">😠</span></label>
+                <label><input type="radio" name="emocion" value="Ansioso"><span class="emoji">😰</span></label>
+                <label><input type="radio" name="emocion" value="Motivado"><span class="emoji">💪</span></label>
+                <label><input type="radio" name="emocion" value="Cansado"><span class="emoji">😴</span></label>
+            </div>
+            <textarea name="comentario" rows="3" placeholder="¿Quieres agregar un comentario? (opcional)"></textarea>
+            <button type="submit">Registrar emoción</button>
+            <div id="mensaje-emocion" style="display:none;color:#22d3ee;margin-top:8px;">¡Emoción registrada!</div>
+        </form>
+    </div>
+    <script>
+    document.getElementById('emocionForm').onsubmit = function(e) {
+        e.preventDefault();
+        document.getElementById('mensaje-emocion').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('mensaje-emocion').style.display = 'none';
+            this.reset();
+        }, 1500);
+    };
+    </script>
+</body>
+</html>

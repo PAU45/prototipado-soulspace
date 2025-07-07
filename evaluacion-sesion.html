@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación de Sesión</title>
+    <link rel="stylesheet" href="evaluacion-sesion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="evaluacion-container">
+        <h2>Sesiones realizadas</h2>
+        <ul class="lista-sesiones">
+            <li>
+                <div>
+                    <b>12/07/2025 - 16:00</b> con <span class="nombre-prof">Dra. Ana Torres</span>
+                </div>
+                <button class="btn-evaluar" onclick="mostrarFormulario('sesion1')">Evaluar</button>
+            </li>
+            <li>
+                <div>
+                    <b>05/07/2025 - 10:30</b> con <span class="nombre-prof">Lic. Juan Pérez</span>
+                </div>
+                <button class="btn-evaluar" onclick="mostrarFormulario('sesion2')">Evaluar</button>
+            </li>
+            <li>
+                <div>
+                    <b>28/06/2025 - 09:00</b> con <span class="nombre-prof">Dra. Carla Ruiz</span>
+                </div>
+                <button class="btn-evaluar" onclick="mostrarFormulario('sesion3')">Evaluar</button>
+            </li>
+        </ul>
+
+        <!-- Formulario de evaluación (aparece al hacer clic en Evaluar) -->
+        <div id="form-evaluacion" class="form-evaluacion-modal" style="display:none;">
+            <div class="form-evaluacion-content">
+                <button class="cerrar-form" onclick="cerrarFormulario()">×</button>
+                <h3>Evalúa tu sesión</h3>
+                <form id="evaluacionSesionForm">
+                    <div class="estrellas">
+                        <label><input type="radio" name="estrella" value="1"><span>★</span></label>
+                        <label><input type="radio" name="estrella" value="2"><span>★</span></label>
+                        <label><input type="radio" name="estrella" value="3"><span>★</span></label>
+                        <label><input type="radio" name="estrella" value="4"><span>★</span></label>
+                        <label><input type="radio" name="estrella" value="5"><span>★</span></label>
+                    </div>
+                    <textarea name="comentario" rows="3" placeholder="Deja un comentario sobre la sesión..."></textarea>
+                    <button type="submit">Enviar evaluación</button>
+                    <div id="mensaje-evaluacion" style="display:none;color:#22d3ee;margin-top:8px;">¡Gracias por tu opinión!</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+    function mostrarFormulario(sesionId) {
+        document.getElementById('form-evaluacion').style.display = 'flex';
+        // Puedes guardar el id de la sesión si lo necesitas para enviar al backend
+    }
+    function cerrarFormulario() {
+        document.getElementById('form-evaluacion').style.display = 'none';
+        document.getElementById('evaluacionSesionForm').reset();
+        document.getElementById('mensaje-evaluacion').style.display = 'none';
+    }
+    document.getElementById('evaluacionSesionForm').onsubmit = function(e) {
+        e.preventDefault();
+        document.getElementById('mensaje-evaluacion').style.display = 'block';
+        setTimeout(() => {
+            document.getElementById('mensaje-evaluacion').style.display = 'none';
+            cerrarFormulario();
+        }, 1500);
+    };
+    </script>
+</body>
+</html>
